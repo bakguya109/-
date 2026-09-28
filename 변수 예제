@@ -1,0 +1,41 @@
+using System;
+
+namespace learn
+{
+    class CSVar
+    {
+        //필드 (클래스 내에서 공통적으로 사용되는 전역 변수)
+        int globalVar;
+        const int Max = 1024;
+
+        public void Method1()
+        {
+            //로컬변수
+            int localVar;
+
+            //아래 할당이 없으면 에러 발생
+            localVar = 100;
+
+            Console.WriteLine(globalVar);
+            Console.WriteLine(localVar);  
+        }
+    }
+
+    class program
+    {
+        //프로그램 실행이 시작되는 곳
+        static void Main(string[] args)
+        {
+            CSVar obj = new CSVar();
+            obj.Method1();
+        }
+    }
+}
+
+/*전역변수를 선언. 해당 변수에 값이 할당되지 않은 경우 기본값인 0이 할당된다.
+지역변수에 값을 할당하지 않고 사용하면, 컴파일러 에러가 발생한다.
+위와 같이 실행하면 전역변수에 값을 할당하지 않았기 때문에 기본값인 0이 할당되어 출력된다.
+지역변수에 100이라는 값을 할당했으므로 실행하면 100이 출력된다.
+0
+100
+이라는 출력 결과가 나온다.*/
